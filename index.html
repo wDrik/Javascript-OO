@@ -9,13 +9,17 @@
 
     <script>
 
-        function Person() {
-            var name;
-            var age;
-            var height;
+        function Person(_name, _age, _height) {
+            var name    = _name
+            var age     = _age
+            var height  = _height
+
+            this.init = function() {
+                console.log('Init Function')
+            }
 
             this.sayHello = function(name) {
-                console.log('Hello ' + name);
+                console.log('Hello ' + name)
             }
 
             this.getName = function getName() {
@@ -23,7 +27,7 @@
             }
 
             this.setName = function(_name) {
-                name = _name;
+                name = _name
             }
 
             this.getAge = function() {
@@ -31,7 +35,7 @@
             }
 
             this.setAge = function(_age) {
-                age = _age;
+                age = _age
             }
 
             this.getHeight = function() {
@@ -39,32 +43,34 @@
             }
 
             this.setHeight = function(_height) {
-                height = _height;
+                height = _height
             }
         }
 
         Person.static_method = function() {
             console.log('This is my first static method')
         }
-        Person.static_attr = 'This is my first static attr';
 
-        Person.static_method();
-        console.log(Person.static_attr);
+        Person.static_attr = 'This is my first static attr'
 
-        var person = new Person();
-        person.setName('Iorgen');
-        person.setAge(25);
-        person.setHeight(1.79);
-        person.sayHello(person.getName());
+        Person.static_method()
+        console.log(Person.static_attr)
 
-        var person2 = new Person();
-        person2.setName('Wildrik');
-        person2.setAge(23);
-        person2.setHeight(1.79);
-        person.sayHello(person2.getName());
+        var person = new Person('Iorgen', 25, 1,79)
+        person.init();
+        // person.setName('Iorgen');
+        // person.setAge(25);
+        // person.setHeight(1.79);
+        person.sayHello(person.getName())
 
-        console.log(person);
-        console.log(person2);
+        var person2 = new Person()
+        person2.setName('Wildrik')
+        person2.setAge(23)
+        person2.setHeight(1.79)
+        person.sayHello(person2.getName())
+
+        console.log(person)
+        console.log(person2)
 
     </script>
 </body>
